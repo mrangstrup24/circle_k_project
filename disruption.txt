@@ -1,0 +1,33 @@
+function setup() {
+  background(0, 0, 0);
+  CanvasX = 400
+  CanvasY = 400
+  Step = 20
+  createCanvas(CanvasX, CanvasY);
+  
+  baseColorR = random(0,255)
+  baseColorG = random(0,255)
+  baseColorB = random(0,255)
+    
+    fill(0,0,0)
+    square(-200, -200, 800, 800)
+
+  for(var j = 0; j<Step; j++){
+    for(var i = 0; i<Step;i++){ 
+      RandomX = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/2
+      RandomY = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/2
+      fill(100*sin(i/3+4.5)+100*sin(j/3+4.5))
+      
+            
+      // randomChange = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))*3
+      // fill(baseColorR+randomChange, baseColorG+randomChange,baseColorB+randomChange)
+      
+      print(pow(5*sin(i/3+4.5), 2))
+      
+      rotation = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/400
+      rotate(rotation)
+      square(CanvasX/Step*i+RandomX, CanvasY/Step*j+RandomY, CanvasX/Step);
+      rotate(rotation *-1)
+    }
+  }
+}

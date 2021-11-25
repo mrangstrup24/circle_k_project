@@ -1,3 +1,5 @@
+// This is super cool Matthew - color really is overrated.
+
 CANVAS_WIDTH = 500
 CANVAS_HEIGHT = 250
 NUM_ROWS = 15

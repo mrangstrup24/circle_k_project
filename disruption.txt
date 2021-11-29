@@ -1,29 +1,33 @@
 function setup() {
-  background(0, 0, 0);
+  background(0, 0, 0); //doesn't work
   CanvasX = 400
   CanvasY = 400
-  Step = 20
+  Step = 20 
   createCanvas(CanvasX, CanvasY);
   
+  //these relate to the 2 commented lines of code inside the nested loop, is supposed to make them different colors.
   baseColorR = random(0,255)
   baseColorG = random(0,255)
   baseColorB = random(0,255)
     
+    //makes a large black square that makes it the background, I don't know why the background() function doesn't work.
     fill(0,0,0)
     square(-200, -200, 800, 800)
 
+
+//creates a square grid, and depending on the values of the sin, it will disrupt it's location and rotation, hopefully to make a disruption in the center.
   for(var j = 0; j<Step; j++){
     for(var i = 0; i<Step;i++){ 
       RandomX = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/2
       RandomY = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/2
       fill(100*sin(i/3+4.5)+100*sin(j/3+4.5))
       
-            
+      // adding these two lines of code completely break the positions of the squares for some reason.
       // randomChange = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))*3
       // fill(baseColorR+randomChange, baseColorG+randomChange,baseColorB+randomChange)
       
-      print(pow(5*sin(i/3+4.5), 2))
       
+     //it seems like when you rotate the square, it will continue to create squares rotated in that direction, so in order to fix, i reversed the rotation after the creation of the square
       rotation = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))/400
       rotate(rotation)
       square(CanvasX/Step*i+RandomX, CanvasY/Step*j+RandomY, CanvasX/Step);

@@ -1,15 +1,17 @@
 function setup() {
   CanvasX = 400
   CanvasY = 400
+  //disruption point 1
   Disruption1X = 150
   Disruption1Y = 200
+  //disruption point 2
   Disruption2X = 250
   Disruption2Y = 200
   Step = 20 
   createCanvas(CanvasX, CanvasY)
 
   
-  //these relate to the 2 commented lines of code inside the nested loop, is supposed to make them different colors.
+  //sets colors of squares (commented out by default)
   //baseColorR = random(0,255)
   //baseColorG = random(0,255)
   //baseColorB = random(0,255)
@@ -21,13 +23,9 @@ function setup() {
       RandomX = random(1,100)/10
       RandomY = random(1,100)/10
       noFill()
-
-      // adding these two lines of code completely break the positions of the squares for some reason.
-      //randomChange = random(pow(5*sin(i/3+4.5), 2) * -1, pow(5*sin(i/3+4.5), 2))*3
-      //fill(baseColorR+randomChange, baseColorG+randomChange,baseColorB+randomChange)
       
       
-     //it seems like when you rotate the square, it will continue to create squares rotated in that direction, so in order to fix, i reversed the rotation after the creation of the square
+     //if the distance from a disruption point to the square goes below a threshold, then create a random amount of disruption on that square
       let distance1 = dist(Disruption1X,Disruption1Y,CanvasX/Step*i,CanvasY/Step*j)
       let distance2 = dist(Disruption2X,Disruption2Y,CanvasX/Step*i,CanvasY/Step*j)
       rotation = random(-PI,PI)/30
